@@ -6,9 +6,9 @@ export class InMemoryGymsRepository implements GymsRepository {
   gyms: Gym[] = []
 
   async findById(id: string) {
-    const user = this.gyms.find(data => data.id === id)
+    const gyms = this.gyms.find(data => data.id === id)
 
-    return user || null
+    return gyms || null
   }
 
   async create(data: Prisma.GymCreateInput) {
@@ -24,5 +24,13 @@ export class InMemoryGymsRepository implements GymsRepository {
     this.gyms.push(gym)
 
     return gym
+  }
+
+  async searchMany(query: string, page: number) {
+    const gyms = this.gyms
+      .filter(data => data.title.includes(query))
+      .slice((page - 1) * 20, page * 20)
+
+    return gyms
   }
 }
