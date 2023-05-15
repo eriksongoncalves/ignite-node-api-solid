@@ -8,7 +8,7 @@
 
 ## Instalação
 
-Renomeie o arquivo `.env.example` para `.env`
+Duplique e renomeie o arquivo `.env.example` para `.env`
 
 ```sh
   npm install
@@ -20,5 +20,5 @@ Renomeie o arquivo `.env.example` para `.env`
 Execute o comando a baixo para inicializar:
 
 ```sh
-	$ npm run start:dev
+	npm run start:dev
 ```
